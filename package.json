@@ -1,5 +1,5 @@
 {
-  "name": "agent-throttle",
+  "name": "@ragent/throttle",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
