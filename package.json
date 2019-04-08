@@ -1,38 +1,57 @@
 {
-  "name": "throttle",
+  "name": "agent-throttle",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha dist/test/*_test.js --exit"
+    "setup": "npm install",
+    "build": "tsc",
+    "test": "nyc ./node_modules/mocha/bin/mocha dist/test/ ",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "clean": "shx rm -rf node_modules/ dist/ docs/",
+    "typedoc": "typedoc",
+    "posttypedoc": "shx cp .nojekyll docs/.nojekyll"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/ryderbrooks/agent-throttle.git"
   },
-  "homepage": "",
+  "homepage": "https://github.com/ryderbrooks/agent-throttle#readme",
   "bugs": {
-    "email": "",
-    "url": ""
+    "url": "https://github.com/ryderbrooks/agent-throttle/issues"
   },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/lib/*.js"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@ragent/cross-types": "^1.0.0",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
-    "@types/node": "^10.14.4",
-    "@types/sinon": "^5.0.7",
+    "@types/node": "^11.13.0",
+    "@types/sinon": "^7.0.11",
     "acorn": "^6.1.1",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.15.3",
     "eslint-plugin-tslint": "^3.1.0",
-    "eslint-plugin-typescript": "^0.12.0",
+    "eslint-plugin-typescript": "^0.14.0",
     "mocha": "^6.0.2",
-    "sinon": "^6.3.5",
+    "nyc": "^13.3.0",
+    "shx": "^0.3.2",
+    "sinon": "^7.3.1",
     "tslint": "^5.14.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.3.4000",
-    "typescript-eslint-parser": "^21.0.2",
-    "typescript-estree": "^1.1.0"
+    "typescript-eslint-parser": "^22.0.0",
+    "typescript-estree": "^18.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

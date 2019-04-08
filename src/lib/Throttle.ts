@@ -1,15 +1,16 @@
-import { EventEmitter } from 'events';
-
-
-import { IRequestable, IThreshold, IThrottleAgent } from '../meta/interfaces';
-import { REJ, RES }                                 from '../meta/types';
-import { sRequestConstructorArgs, sTransfer }       from '../meta/structs';
+import { EventEmitter }               from 'events';
+import { IThreshold, IThrottleAgent } from '../meta/interfaces';
+import { interfaces, structs, types } from '@ragent/cross-types';
+import sTransfer = structs.sTransfer;
+import RES = types.RES;
+import sRequestConstructorArgs = structs.sRequestConstructorArgs;
+import IRequestable = interfaces.IRequestable;
 
 
 
 export class Throttle extends EventEmitter implements IThrottleAgent {
     private static delay( ms: number ): Promise<boolean> {
-        return new Promise<boolean>(( res: RES<boolean>, rej: REJ ): void => {
+        return new Promise<boolean>(( res: RES<boolean> ): void => {
             setTimeout(() => res(true), ms);
         });
     }
@@ -86,7 +87,7 @@ export class Throttle extends EventEmitter implements IThrottleAgent {
 
     private set reqCnt( cnt: number ) {
         if( cnt > this._reqCnt ) {
-            this.totalReqCnt += 1;
+            this.totalReqCnt = this.totalReqCnt + 1;
         }
         this._reqCnt     = cnt;
         this.lastReqTime = Date.now();

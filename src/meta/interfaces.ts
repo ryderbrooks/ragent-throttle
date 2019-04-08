@@ -1,4 +1,5 @@
-import { sRequestConstructorArgs, sTransfer } from './structs';
+import { interfaces } from '@ragent/cross-types';
+import IRequestable = interfaces.IRequestable;
 
 
 
@@ -14,23 +15,11 @@ export interface IThreshold {
 
 
 
-export interface IRequestable {
-    request( { headers, options, responseTimeout, transferTimeout }: sRequestConstructorArgs ): Promise<sTransfer>;
-}
-
-
-
 export interface IThrottleAgent extends IRequestable {
-    emit( event: THROTTLE_EVENTS.SLEEP | THROTTLE_EVENTS.DELAY, data: any ): boolean;
+    emit( event: THROTTLE_EVENTS.SLEEP | THROTTLE_EVENTS.DELAY | THROTTLE_EVENTS.AWAKE | THROTTLE_EVENTS.RESUME,
+          data: any ): boolean;
 
-    emit( event: THROTTLE_EVENTS.AWAKE | THROTTLE_EVENTS.RESUME, data: any ): boolean;
-
-
-    on( event: THROTTLE_EVENTS.SLEEP | THROTTLE_EVENTS.DELAY,
+    on( event: THROTTLE_EVENTS.SLEEP | THROTTLE_EVENTS.DELAY | THROTTLE_EVENTS.AWAKE | THROTTLE_EVENTS.RESUME,
         listener: ( data: any ) => void ): this;
-
-    on( event: THROTTLE_EVENTS.AWAKE | THROTTLE_EVENTS.RESUME,
-        listener: ( data: any ) => void ): this;
-
 }
 

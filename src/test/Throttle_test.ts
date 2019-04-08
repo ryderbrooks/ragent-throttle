@@ -1,43 +1,35 @@
-import { assert }    from 'chai';
-import { Throttle }  from '../lib/Throttle';
-import {
-    IRequestable,
-    IThreshold,
-}                    from '../meta/interfaces';
-import { Threshold } from '../lib/Threshold';
-import {
-    REJ,
-    RES,
-}                    from '../meta/types';
-import {
-    sRequestConstructorArgs,
-    sThrottleThresholdOptions,
-    sTransfer,
-}                    from '../meta/structs';
+import { assert }     from 'chai';
+import { Throttle }   from '../lib/Throttle';
+import { IThreshold } from '../meta/interfaces';
+import { Threshold }  from '../lib/Threshold';
+
+import { sThrottleThresholdOptions }  from '../meta/structs';
+import { interfaces, structs, types } from '@ragent/cross-types';
+import sRequestConstructorArgs = structs.sRequestConstructorArgs;
+import sTransfer = structs.sTransfer;
+import IRequestable = interfaces.IRequestable;
+import RES = types.RES;
 
 
-describe('Throttle requestable', () => {
+describe('Throttle', () => {
 
-
-    const exTime: number  = 300;
-    const TO_SEC: number  = 1e9;
     const TO_MILL: number = 1e6;
 
-    const path:string = '/';
-    const requestOptions: any = {};
-    const responseTimeout:number = 2000;
-    const transferTimeout:number = 2000;
+    const path: string                         = '/';
+    const requestOptions: any                  = {};
+    const responseTimeout: number              = 2000;
+    const transferTimeout: number              = 2000;
     const requestArgs: sRequestConstructorArgs = {
-        headers: {':path': path},
-        options: requestOptions,
-        responseTimeout: responseTimeout,
-        transferTimeout: transferTimeout,
+        headers         : { ':path' : path },
+        options         : requestOptions,
+        responseTimeout : responseTimeout,
+        transferTimeout : transferTimeout,
     };
 
 
     const dummy: sTransfer = {
         responseHeaders : undefined,
-        body: Buffer.from(''),
+        body            : Buffer.from(''),
         stats           : {
             utc_startTime           : new Date(),
             status                  : 0,
@@ -58,7 +50,7 @@ describe('Throttle requestable', () => {
                             transferTimeout,
                         }: sRequestConstructorArgs ): Promise<sTransfer> {
 
-            return new Promise(( res: RES<sTransfer>, rej: REJ ): void => {
+            return new Promise(( res: RES<sTransfer> ): void => {
                 setImmediate(() => res(dummy));
             });
 
