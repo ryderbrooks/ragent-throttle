@@ -15,11 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryderbrooks/agent-throttle.git"
+    "url": "git+https://github.com/ryderbrooks/ragent-throttle.git"
   },
-  "homepage": "https://github.com/ryderbrooks/agent-throttle#readme",
+  "homepage": "https://github.com/ryderbrooks/ragent-throttle#readme",
   "bugs": {
-    "url": "https://github.com/ryderbrooks/agent-throttle/issues"
+    "url": "https://github.com/ryderbrooks/ragent-throttle/issues"
   },
   "files": [
     "dist/index.js",
