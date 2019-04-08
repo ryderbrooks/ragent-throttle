@@ -33,7 +33,6 @@
   "compileOnSave": true,
   "include": [
     "src/**/*"
-//    "dist/enums.d.ts"
   ],
   "exclude": [
     "node_modules"
@@ -41,6 +40,8 @@
   "typedocOptions": {
     "mode": "modules",
     "out": "docs",
+    "includeDeclaration": true,
+    "excludePrivate": true,
     "exclude": ["./src/test/**"]
   }
 }
