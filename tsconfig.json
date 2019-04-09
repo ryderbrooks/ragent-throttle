@@ -36,5 +36,15 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "typedocOptions":{
+    "mode": "modules",
+    "out": "docs",
+    "module": "commonjs",
+    "target": "ES6",
+    "includeDeclaration": true,
+    "excludePrivate": true,
+    "exclude": ["./src/test/**"],
+    "includes": ["./node_modules/@ragent/cross-types/**"]
+  }
 }
