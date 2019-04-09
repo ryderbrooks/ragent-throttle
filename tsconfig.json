@@ -39,7 +39,7 @@
     "target": "ES6",
     "excludeNotExported": false,
     "includeDeclaration": true,
-    "excludePrivate": true,
+    "excludePrivate": false,
     "includes": ["src/**/*", "node_modules/**/*"]
   }
 }
