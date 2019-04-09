@@ -3,12 +3,13 @@ import { Throttle }   from '../lib/Throttle';
 import { IThreshold } from '../meta/interfaces';
 import { Threshold }  from '../lib/Threshold';
 
-import { sThrottleThresholdOptions }  from '../meta/structs';
-import { interfaces, structs, types } from '@ragent/cross-types';
-import sRequestConstructorArgs = structs.sRequestConstructorArgs;
-import sTransfer = structs.sTransfer;
-import IRequestable = interfaces.IRequestable;
-import RES = types.RES;
+import { sThrottleThresholdOptions } from '../meta/structs';
+import {
+    IRequestable,
+    RES,
+    sRequestConstructorArgs,
+    sTransfer,
+}                                    from '@ragent/cross-types';
 
 
 describe('Throttle', () => {
