@@ -38,7 +38,7 @@
     "node_modules"
   ],
   "typedocOptions":{
-    "mode": "modules",
+    "mode": "file",
     "out": "docs",
     "module": "commonjs",
     "target": "ES6",
