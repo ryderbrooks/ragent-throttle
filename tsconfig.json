@@ -45,6 +45,6 @@
     "includeDeclaration": true,
     "excludePrivate": true,
     "exclude": ["./src/test/**"],
-    "includes": ["./node_modules/@ragent/cross-types/**"]
+    "includes": ["./node_modules/@ragent/cross-types/dist/index.d.ts"]
   }
 }
