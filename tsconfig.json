@@ -32,7 +32,7 @@
   },
   "compileOnSave": true,
   "typedocOptions":{
-    "mode": "file",
+    "mode": "modules",
     "out": "docs",
     "ignoreCompilerErrors": true,
     "module": "commonjs",
