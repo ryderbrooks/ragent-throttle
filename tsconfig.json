@@ -44,9 +44,6 @@
     "target": "ES6",
     "includeDeclaration": true,
     "excludePrivate": true,
-    "exclude": ["./src/test/**"],
-    "includes": ["./node_modules/@ragent/cross-types/dist/",
-      "dist/"
-    ]
+    "exclude": ["./src/test/**"]
   }
 }
