@@ -31,9 +31,6 @@
     "lib": ["esnext"]
   },
   "compileOnSave": true,
-  "include": [
-    "src/**"
-  ],
   "typedocOptions":{
     "mode": "file",
     "out": "docs",
