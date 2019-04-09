@@ -1,5 +1,4 @@
-import { interfaces } from '@ragent/cross-types';
-import IRequestable = interfaces.IRequestable;
+import { IRequestable } from '@ragent/cross-types';
 
 
 

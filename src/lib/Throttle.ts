@@ -1,10 +1,14 @@
-import { EventEmitter }               from 'events';
-import { IThreshold, IThrottleAgent } from '../meta/interfaces';
-import { interfaces, structs, types } from '@ragent/cross-types';
-import sTransfer = structs.sTransfer;
-import RES = types.RES;
-import sRequestConstructorArgs = structs.sRequestConstructorArgs;
-import IRequestable = interfaces.IRequestable;
+import { EventEmitter } from 'events';
+import {
+    IThreshold,
+    IThrottleAgent,
+}                       from '../meta/interfaces';
+import {
+    IRequestable,
+    RES,
+    sRequestConstructorArgs,
+    sTransfer,
+}                       from '@ragent/cross-types';
 
 
 

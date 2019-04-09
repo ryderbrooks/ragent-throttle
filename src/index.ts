@@ -2,8 +2,7 @@ import { Throttle }                  from './lib/Throttle';
 import { Threshold }                 from './lib/Threshold';
 import { sThrottleThresholdOptions } from './meta/structs';
 import { IThrottleAgent }            from './meta/interfaces';
-import { interfaces }                from '@ragent/cross-types';
-import IRequestable = interfaces.IRequestable;
+import { IRequestable }              from '@ragent/cross-types';
 
 
 export {IThrottleAgent} from './meta/interfaces';
