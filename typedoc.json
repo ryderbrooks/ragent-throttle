@@ -1,0 +1,8 @@
+{
+  "mode": "modules",
+  "out": "docs",
+  "includeDeclaration": true,
+  "excludePrivate": true,
+  "exclude": ["./src/test/**"],
+  "includes": ["./node_modules/@ragent/cross-types/**"]
+}
