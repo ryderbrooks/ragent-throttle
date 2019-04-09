@@ -40,6 +40,6 @@
     "excludeNotExported": false,
     "includeDeclaration": true,
     "excludePrivate": false,
-    "includes": ["src/**/*", "node_modules/**/*"]
+    "includes": ["src", "node_modules"]
   }
 }
