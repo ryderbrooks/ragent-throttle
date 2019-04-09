@@ -2,8 +2,8 @@
   "name": "@ragent/throttle",
   "version": "1.0.1",
   "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index",
+  "types": "dist/index",
   "scripts": {
     "setup": "npm install",
     "build": "tsc",
