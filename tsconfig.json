@@ -34,7 +34,6 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "src/test",
     "node_modules"
   ],
   "compileOnSave": true,
