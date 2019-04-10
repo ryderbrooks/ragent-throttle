@@ -30,16 +30,28 @@
     ],
     "lib": ["esnext"]
   },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/test",
+    "node_modules"
+  ],
   "compileOnSave": true,
   "typedocOptions":{
-    "mode": "modules",
+    "mode": "file",
     "out": "docs",
-    "ignoreCompilerErrors": true,
+    "ignoreCompilerErrors": false,
     "module": "commonjs",
     "target": "ES6",
+    "verbose": true,
     "excludeNotExported": false,
-    "includeDeclaration": true,
-    "excludePrivate": false,
-    "includes": ["src", "node_modules"]
+    "excludeExternals": false,
+    "includeDeclarations": true,
+    "excludePrivate": true,
+    "externalPattern": "**/node_modules/@ragent/**",
+    "exclude":[
+      "**/node_modules/!(@ragent|!@types)/!(node)/**"
+    ]
   }
 }

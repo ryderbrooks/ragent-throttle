@@ -21,4 +21,3 @@ export interface IThrottleAgent extends IRequestable {
     on( event: THROTTLE_EVENTS.SLEEP | THROTTLE_EVENTS.DELAY | THROTTLE_EVENTS.AWAKE | THROTTLE_EVENTS.RESUME,
         listener: ( data: any ) => void ): this;
 }
-
