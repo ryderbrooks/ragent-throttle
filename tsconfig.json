@@ -51,6 +51,8 @@
     "externalPattern": "**/node_modules/@ragent/**",
     "exclude":[
       "**/node_modules/!(@ragent|!@types)/!(node)/**"
-    ]
+    ],
+    "name": "ragent-throttle",
+    "theme": "minimal"
   }
 }
