@@ -1,7 +1,7 @@
-import { EventEmitter }                                      from 'events';
+import { EventEmitter }                                     from 'events';
 import { IThreshold, IThrottleAgent }                       from '../meta/interfaces';
 import { IRequestable, sRequestConstructorArgs, sTransfer } from '@ragent/cross-types';
-import { RES }                                               from 'res-rej-types';
+import { RES }                                              from 'res-rej-types';
 
 
 
@@ -45,7 +45,7 @@ export class Throttle extends EventEmitter implements IThrottleAgent {
     }
 
 
-    constructor( session: IRequestable, thresholds: IThreshold ) {
+    public constructor( session: IRequestable, thresholds: IThreshold ) {
         super();
         this.session    = session;
         this.thresholds = thresholds;

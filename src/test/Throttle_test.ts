@@ -3,19 +3,19 @@ import { Throttle }   from '../lib/Throttle';
 import { IThreshold } from '../meta/interfaces';
 import { Threshold }  from '../lib/Threshold';
 
-import { sThrottleThresholdOptions }                         from '../meta/structs';
+import { sThrottleThresholdOptions }                        from '..';
 import { IRequestable, sRequestConstructorArgs, sTransfer } from '@ragent/cross-types';
-import { RES }                                               from 'res-rej-types';
+import { RES }                                              from 'res-rej-types';
 
 
-describe('Throttle', () => {
+describe('Throttle', (): void => {
 
-    const TO_MILL: number = 1e6;
+    const TO_MILL = 1e6;
 
-    const path: string                         = '/';
+    const path                                 = '/';
     const requestOptions: any                  = {};
-    const responseTimeout: number              = 2000;
-    const transferTimeout: number              = 2000;
+    const responseTimeout                      = 2000;
+    const transferTimeout                      = 2000;
     const requestArgs: sRequestConstructorArgs = {
         headers         : { ':path' : path },
         options         : requestOptions,
@@ -38,14 +38,10 @@ describe('Throttle', () => {
 
 
 
-    class Moc_Req_Session implements IRequestable {
+    class MocReqSession implements IRequestable {
+
         // @ts-ignore
-        public request( {
-                            headers,
-                            options,
-                            responseTimeout,
-                            transferTimeout,
-                        }: sRequestConstructorArgs ): Promise<sTransfer> {
+        public request( obj: sRequestConstructorArgs ): Promise<sTransfer> {
 
             return new Promise(( res: RES<sTransfer> ): void => {
                 setImmediate(() => res(dummy));
@@ -56,7 +52,7 @@ describe('Throttle', () => {
 
 
 
-    it('pauses between requests', async () => {
+    it('pauses between requests', async (): Promise<void> => {
         const threshOptions: sThrottleThresholdOptions = {
             maxTotalReqs    : 4,
             minReqPause     : 300,
@@ -69,8 +65,10 @@ describe('Throttle', () => {
 
         const thresholds: IThreshold = new Threshold(threshOptions);
 
-        const T: Throttle    = new Throttle(new Moc_Req_Session(),
-                                            thresholds);
+        const T: Throttle    = new Throttle(
+            new MocReqSession(),
+            thresholds,
+        );
         const before: number = Date.now();
         // first request does invoke a pause
         // so we call twice so that we can messure the second call
@@ -83,7 +81,7 @@ describe('Throttle', () => {
         assert.isBelow(elaps, threshOptions.maxReqPause * 2);
     });
 
-    it('does not sleep when at or below request threshold for sleep', async () => {
+    it('does not sleep when at or below request threshold for sleep', async (): Promise<void> => {
         const threshOptions: sThrottleThresholdOptions = {
             maxTotalReqs    : 4,
             minReqPause     : 0,
@@ -96,8 +94,10 @@ describe('Throttle', () => {
 
         const thresholds: IThreshold = new Threshold(threshOptions);
 
-        const T: Throttle                = new Throttle(new Moc_Req_Session(),
-                                                        thresholds);
+        const T: Throttle                = new Throttle(
+            new MocReqSession(),
+            thresholds,
+        );
         const before: [ number, number ] = process.hrtime();
         await T.request(requestArgs);
         const diff: [ number, number ] = process.hrtime(before);
@@ -105,7 +105,7 @@ describe('Throttle', () => {
         assert.isBelow(elaps, threshOptions.minSleepMS);
     });
 
-    it('sleeps when over threshold for sleep', async () => {
+    it('sleeps when over threshold for sleep', async (): Promise<void> => {
         const threshOptions: sThrottleThresholdOptions = {
             maxTotalReqs    : 4,
             minReqPause     : 0,
@@ -118,7 +118,7 @@ describe('Throttle', () => {
 
         const thresholds: IThreshold = new Threshold(threshOptions);
 
-        const T: Throttle = new Throttle(new Moc_Req_Session(), thresholds);
+        const T: Throttle = new Throttle(new MocReqSession(), thresholds);
         // call request number of times so that the next call will cause a sleep
 
         // set timer here because this is the call were are interested in
@@ -131,7 +131,7 @@ describe('Throttle', () => {
         assert.isBelow(elaps, threshOptions.maxSleepMS * 2);
     });
 
-    it('resets sleep threshold count after a sleep', async () => {
+    it('resets sleep threshold count after a sleep', async (): Promise<void> => {
         const threshOptions: sThrottleThresholdOptions = {
             maxTotalReqs    : 4,
             minReqPause     : 0,
@@ -144,7 +144,7 @@ describe('Throttle', () => {
 
         const thresholds: IThreshold = new Threshold(threshOptions);
 
-        const T: Throttle = new Throttle(new Moc_Req_Session(), thresholds);
+        const T: Throttle = new Throttle(new MocReqSession(), thresholds);
         // call request number of times so that the next call will cause a sleep
         // set timer here because the next call should cause a sleep
         const before: [ number, number ] = process.hrtime();
@@ -158,7 +158,7 @@ describe('Throttle', () => {
         assert.isBelow(elaps, threshOptions.maxSleepMS * 2);
     });
 
-    it('throws when maximum total requests has been made', async () => {
+    it('throws when maximum total requests has been made', async (): Promise<void> => {
         const threshOptions: sThrottleThresholdOptions = {
             maxTotalReqs    : 1,
             minReqPause     : 0,
@@ -170,7 +170,7 @@ describe('Throttle', () => {
         };
         const thresholds: IThreshold                   = new Threshold(threshOptions);
 
-        const T: Throttle = new Throttle(new Moc_Req_Session(), thresholds);
+        const T: Throttle = new Throttle(new MocReqSession(), thresholds);
         try {
             await T.request(requestArgs);
             assert.isTrue(false, 'did not throw');

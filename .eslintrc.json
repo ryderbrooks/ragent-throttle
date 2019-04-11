@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "globalReturn": false,
+      "jsx": false
+    },
+    "filePath": "",
+    "tsconfigRootDir": "",
+    "extraFileExtensions": [],
+    "warnOnUnsupportedTypeScriptVersion": true
+  },
+  "rules": {
+    "adjacent-overload-signatures": true,
+    "camelcase": "warn",
+    "indent": "warn"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}
