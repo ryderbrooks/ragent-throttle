@@ -1,5 +1,6 @@
-import { IThreshold}                 from '../meta/interfaces';
-import { sThrottleThresholdOptions } from '../meta/structs';
+import { IThreshold }                from '../meta/interfaces';
+import { sThrottleThresholdOptions } from '..';
+
 
 function randInt(min:number, max:number):number{
     return Math.floor(Math.random()*(max-min+1)+min );
