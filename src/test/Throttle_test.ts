@@ -3,13 +3,9 @@ import { Throttle }   from '../lib/Throttle';
 import { IThreshold } from '../meta/interfaces';
 import { Threshold }  from '../lib/Threshold';
 
-import { sThrottleThresholdOptions } from '../meta/structs';
-import {
-    IRequestable,
-    RES,
-    sRequestConstructorArgs,
-    sTransfer,
-}                                    from '@ragent/cross-types';
+import { sThrottleThresholdOptions }                         from '../meta/structs';
+import { IRequestable, sRequestConstructorArgs, sTransfer } from '@ragent/cross-types';
+import { RES }                                               from 'res-rej-types';
 
 
 describe('Throttle', () => {
