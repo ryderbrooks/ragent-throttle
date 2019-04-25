@@ -29,7 +29,8 @@
   "rules": {
     "adjacent-overload-signatures": true,
     "camelcase": "warn",
-    "indent": "warn"
+    "@typescript-eslint/indent": "off",
+    "indent": "off"
   },
   "overrides": [
     {
