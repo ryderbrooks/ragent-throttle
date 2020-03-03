@@ -31,7 +31,7 @@
   "devDependencies": {
     "@ragent/cross-types": "^2.0.6",
     "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.6",
+    "@types/mocha": "^7.0.2",
     "@types/node": "^11.13.4",
     "@types/sinon": "^7.0.11",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
