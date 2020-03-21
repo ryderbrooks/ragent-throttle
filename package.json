@@ -45,7 +45,7 @@
     "nyc": "^13.3.0",
     "shx": "^0.3.2",
     "sinon": "^7.3.1",
-    "typedoc": "^0.14.2",
+    "typedoc": "^0.17.2",
     "typescript": "^3.4.3"
   },
   "publishConfig": {
