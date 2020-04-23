@@ -39,7 +39,7 @@
     "@typescript-eslint/typescript-estree": "^1.6.0",
     "res-rej-types": "^0.1.1",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.3",
+    "coveralls": "^3.0.14",
     "eslint": "^5.16.0",
     "mocha": "^6.1.2",
     "nyc": "^13.3.0",
